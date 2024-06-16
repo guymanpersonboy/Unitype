@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class Typer : MonoBehaviour
 {
-    // TODO need a word bank
+    public WordBank wordBank = null;
     public Text wordOutput = null;
 
     private string remainingWord = string.Empty;
-    private string currentWord = "muffins";
+    private string currentWord = string.Empty;
 
     // Start is called before the first frame update
     private void Start()
@@ -19,8 +19,8 @@ public class Typer : MonoBehaviour
 
     private void SetCurrentWord()
     {
-        // TODO get bank word
-        SetRemainingWord(currentWord)
+        currentWord = wordBank.GetWord();
+        SetRemainingWord(currentWord);
     }
 
     private void SetRemainingWord(string newString)
@@ -62,10 +62,10 @@ public class Typer : MonoBehaviour
     }
 
     private void RemoveLetter()
-    [
+    {
         string newString = remainingWord.Remove(0, 1);
         SetRemainingWord(newString);
-    ]
+    }
 
     private bool IsWordComplete()
     {
