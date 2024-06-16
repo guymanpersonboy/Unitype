@@ -25,6 +25,7 @@ public class WordBank : MonoBehaviour
     {
         workingWords.AddRange(originalWords);
         Shuffle(workingWords);
+        ConvertToLower(workingWords);
     }
 
     private void Shuffle(List<string> list)
